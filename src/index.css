@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #e4d6a7;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(00%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-hover:hover h3 {
+    display: inline-block;
+    animation: marquee 5s linear infinite;
+    white-space: nowrap;
+    position: relative;
+}
