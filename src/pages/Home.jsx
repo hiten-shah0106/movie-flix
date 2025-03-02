@@ -33,8 +33,12 @@ const Home = () => {
         setLoading(true);
         try {
             const searchResults = await searchMovies(searchQuery);
-            setMovies(searchResults);
-            setError(null);
+            if (searchResults.length > 0) {
+                setMovies(searchResults);
+                setError(null);
+            } else {
+                setError("No Movies Found.. Check For Typo!");
+            }
         } catch (err) {
             console.log(err);
             setError("Failed to search Movies...");
@@ -67,8 +71,9 @@ const Home = () => {
             </form>
 
             {error && (
-                <div className="">
+                <div className="text-center text-red-500 text-2xl font-bold mt-16">
                     {error}
+                    <br />
                     An Error Occured.. Please Try Again Later...{" "}
                 </div>
             )}

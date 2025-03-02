@@ -1,13 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import { MovieProvider } from "./contexts/MovieContext.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/Home.jsx";
 import Favs from "./pages/Favs.jsx";
-import { Routes, Route } from "react-router-dom";
+import MoviePage from "./pages/MoviePage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import "./css/App.css";
-import { MovieProvider } from "./contexts/MovieContext.jsx";
-import MoviePage from "./pages/MoviePage.jsx";
-function App() {
+
+const App = () => {
     return (
         <MovieProvider>
+            <ToastContainer position="top-right" autoClose={2000} />
             <Navbar />
             <main className="main-content">
                 <Routes>
@@ -21,6 +25,6 @@ function App() {
             </main>
         </MovieProvider>
     );
-}
+};
 
 export default App;
